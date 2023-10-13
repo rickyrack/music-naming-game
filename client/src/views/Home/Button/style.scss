@@ -1,0 +1,23 @@
+@use "../../../utils/globals.scss" as *;
+
+button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 15rem;
+    height: 3rem;
+
+    border-radius: 1.1rem;
+    border: none;
+    background: #06352A;
+
+    color: #CCC;
+
+    text-align: center;
+    font-family: Inter;
+    font-size: 2.5rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}

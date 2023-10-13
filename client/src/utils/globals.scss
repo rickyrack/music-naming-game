@@ -1,7 +1,85 @@
-$primaryColor: #000000; //headers, main buttons, and key accents.
-$secondaryColor: #000000; //secondary elements, icons, and less prominent buttons.
-$accentColor: #000000; //interactive elements, success messages, and highlights.
-$neutralColor: #000000; //backgrounds, text, and other neutral elements.
-$backgroundColor: #000000; //background of the main content area and overall page background.
+/* Variables */
+$primary-background: #1E1E1E;  /* Charcoal Black */
+$secondary-background: #121212;  /* Dark Gray for Content Area */
+$primary-text: #FFFFFF;  /* White */
+$secondary-text: #D9D9D9;  /* Light Gray */
+$accent-color: #2CA8FF;  /* Electric Blue */
+$button-color: #007BFF;  /* Highlighted Blue */
 
-$headingSize: 3rem;
+:root::before {
+    content: "";
+    background-image: url("../../assets/images/background.png");
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100.2% 100.2%;
+    z-index: -1;
+}
+/*
+// Mixins
+@mixin primary-background {
+  background-color: $primary-background;
+}
+
+@mixin secondary-background {
+  background-color: $secondary-background;
+}
+
+@mixin primary-text {
+  color: $primary-text;
+}
+
+@mixin secondary-text {
+  color: $secondary-text;
+}
+
+@mixin accent-color {
+  color: $accent-color;
+}
+
+@mixin button-styles {
+  background-color: $button-color;
+  color: $primary-text;
+
+  &:hover {
+    background-color: darken($button-color, 10%);
+  }
+
+  &:active {
+    background-color: darken($button-color, 20%);
+  }
+}
+
+// Global Styles
+body {
+  @include primary-background;
+}
+
+.content-area {
+  @include secondary-background;
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+  @include primary-text;
+}
+
+.secondary-text {
+  @include secondary-text;
+}
+
+.button {
+  @include button-styles;
+}
+
+a {
+  @include accent-color;
+
+  &:hover {
+    color: $button-color;
+  }
+}
+*/

@@ -1,0 +1,22 @@
+@use "../../utils/globals.scss" as *;
+
+.home {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 100vw;
+    height: 100vh;
+    overflow: auto;
+
+    menu {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        height: 13rem;
+
+        margin: 0;
+        padding: 0;
+    }
+}

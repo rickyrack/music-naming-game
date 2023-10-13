@@ -1,0 +1,29 @@
+@use "../../utils/globals.scss" as *;
+
+nav {
+    display: flex;
+    flex-direction: row;
+
+    position: absolute;
+    top: 0;
+    height: 7rem;
+    width: 100%;
+
+    section {
+        width: 100%;
+        height: 100%;
+    }
+
+    .logo {
+        display: flex;
+        width: 110%;
+
+        img {
+            position: relative;
+            margin: 0 0 0 .4rem;
+            align-self: center;
+            transform: scale(68%);
+        }
+    }
+
+}
