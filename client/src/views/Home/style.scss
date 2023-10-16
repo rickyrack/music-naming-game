@@ -2,6 +2,7 @@
 
 .home {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 
@@ -16,7 +17,9 @@
 
         height: 13rem;
 
-        margin: 0;
+        margin: 6rem 0 3rem 0;
         padding: 0;
     }
+
+
 }

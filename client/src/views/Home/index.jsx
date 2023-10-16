@@ -1,6 +1,7 @@
 import React from 'react'
 import "./style.scss";
 import Button from './button';
+import Leaderboard from './Leaderboard';
 
 function Home() {
   return (
@@ -10,6 +11,7 @@ function Home() {
           <Button text="Play" />
           <Button text="Rules" />
         </menu>
+        <Leaderboard />
     </div>
   )
 }

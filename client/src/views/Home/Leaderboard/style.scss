@@ -1,0 +1,42 @@
+@use "../../../utils/globals.scss" as *;
+
+.leaderboard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: 20rem;
+    height: 25rem;
+
+    border-radius: 1.1rem;
+    background-color: rgba(43, 43, 43, 0.45);
+
+    color: #CCCCCC;
+
+    .title {
+        display: flex;
+        align-items: center;
+
+        margin: 0;
+
+        width: 100%;
+        height: 8rem;
+
+        border-bottom: .15rem solid black;
+
+        text-align: center;
+        font-size: 2.7rem;
+    }
+
+    p {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0;
+
+        height: 5.1rem;
+        width: 100%;
+
+        font-size: 2.2rem;
+    }
+}
