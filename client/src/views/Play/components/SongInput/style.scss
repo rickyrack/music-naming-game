@@ -1,0 +1,19 @@
+@use "../../../../utils/globals.scss" as *;
+
+.songInput {
+    display: flex;
+    flex-direction: column;
+
+    position: relative;
+    transform: translate(-50%);
+    top: 23%;
+    left: 50%;
+
+    height: 2.6rem;
+    width: 26rem;
+
+    border: none;
+    //border: .2rem solid $secondaryColor;
+    border-radius: 1.1rem;
+    background-color: $primaryColor;
+}

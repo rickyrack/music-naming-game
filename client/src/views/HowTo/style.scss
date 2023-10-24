@@ -1,0 +1,45 @@
+@use "../../utils/globals.scss" as *;
+
+.howTo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 100vw;
+    height: 100vh;
+
+    main {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        flex-direction: column;
+
+        section {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            flex-direction: column;
+
+            width: 30rem;
+            height: 35rem;
+
+            margin: 0 0 1.4rem 0;
+    
+            border-radius: 1.1rem;
+            color: $primaryText;
+    
+            background-color: $primaryColor;
+
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            p {
+                margin: 0 1.4rem 0 1.4rem;
+                font-size: 1.4rem;
+                line-height: 2.2rem;
+            }
+        }
+
+    }
+}

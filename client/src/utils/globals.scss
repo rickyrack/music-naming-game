@@ -1,10 +1,10 @@
 /* Variables */
-$primary-background: #1E1E1E;  /* Charcoal Black */
-$secondary-background: #121212;  /* Dark Gray for Content Area */
-$primary-text: #FFFFFF;  /* White */
-$secondary-text: #D9D9D9;  /* Light Gray */
-$accent-color: #2CA8FF;  /* Electric Blue */
-$button-color: #007BFF;  /* Highlighted Blue */
+$primaryColor: rgba(43, 43, 43, 0.45);
+$secondaryColor: #06352A;
+$primaryText: #CCCCCC;
+//$secondary-text: #D9D9D9;
+//$accent-color: #2CA8FF;
+//$button-color: #06352A;
 
 :root::before {
     content: "";

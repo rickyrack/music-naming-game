@@ -1,33 +1,19 @@
 @use "../../../utils/globals.scss" as *;
 
-.leaderboard {
+.statusboard {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
 
     width: 20rem;
-    height: 25rem;
+    height: 10rem;
 
     border-radius: 1.1rem;
     border: .2rem solid $secondaryColor;
-    background-color: rgba(43, 43, 43, 0.45);
+    background-color: $primaryColor;
 
-    color: #CCCCCC;
-
-    .title {
-        display: flex;
-        align-items: center;
-
-        margin: 0;
-
-        width: 100%;
-        height: 8rem;
-
-        border-bottom: .15rem solid black;
-
-        text-align: center;
-        font-size: 2.7rem;
-    }
+    color: $primaryText;
 
     p {
         display: flex;
@@ -35,9 +21,11 @@
         align-items: center;
         margin: 0;
 
+        text-align: center;
+
         height: 5.1rem;
         width: 100%;
 
-        font-size: 2.2rem;
+        font-size: 2.6rem;
     }
 }

@@ -1,4 +1,4 @@
-@use "../../../utils/globals.scss" as *;
+@use "../../utils/globals.scss" as *;
 
 button {
     display: flex;
@@ -10,9 +10,9 @@ button {
 
     border-radius: 1.1rem;
     border: none;
-    background: #06352A;
+    background: $secondaryColor;
 
-    color: #CCC;
+    color: $primaryText;
 
     text-align: center;
     font-family: Inter;
@@ -23,5 +23,8 @@ button {
 }
 
 button:hover {
-    background: #052e24;
+    filter: brightness(0.84);
+    border: .1rem solid rgb(29, 29, 29);
+    box-shadow: 0rem 0rem .5rem rgb(29, 29, 29);
+    cursor: pointer;
 }

@@ -1,0 +1,20 @@
+@use "../../../../utils/globals.scss" as *;
+
+.history {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+
+    position: relative;
+    transform: translate(-50%);
+    top: 19%;
+    left: 40%;
+
+    height: 41rem;
+    width: 21rem;
+
+    border: .2rem solid $secondaryColor;
+    border-radius: 0 1.1rem 1.1rem 0;
+    background-color: $primaryColor;
+}

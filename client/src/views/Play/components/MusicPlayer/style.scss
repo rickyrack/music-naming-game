@@ -1,0 +1,17 @@
+@use "../../../../utils/globals.scss" as *;
+
+.player {
+    display: flex;
+
+    position: relative;
+    transform: translate(-50%);
+    top: 19%;
+    left: 50%;
+
+    height: 25rem;
+    width: 35rem;
+
+    border: .2rem solid $secondaryColor;
+    border-radius: 1.1rem;
+    background-color: $primaryColor;
+}

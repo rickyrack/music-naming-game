@@ -1,16 +1,14 @@
 import React from 'react'
 import "./style.scss";
-import Button from './button';
 import Leaderboard from './Leaderboard';
+import Statusboard from './Statusboard';
+import Menu from './Menu';
 
 function Home() {
   return (
     <div className="home">
-        <menu>
-          <Button text="Practice" />
-          <Button text="Play" />
-          <Button text="Rules" />
-        </menu>
+        <Statusboard />
+        <Menu />
         <Leaderboard />
     </div>
   )
