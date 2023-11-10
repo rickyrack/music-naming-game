@@ -14,7 +14,13 @@
     height: 41rem;
     width: 21rem;
 
+    overflow: auto;
+
     border: .2rem solid $secondaryColor;
     border-radius: 0 1.1rem 1.1rem 0;
     background-color: $primaryColor;
+}
+
+.history::-webkit-scrollbar {
+    display: none;
 }

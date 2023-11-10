@@ -13,6 +13,12 @@ function Menu() {
       case "HowToPage":
         navigate('/howto');
         break;
+      case "CasualPage":
+        navigate('/casual');
+        break;
+      case "RankedPage":
+        navigate('/ranked');
+        break;
 
       default:
         setMenu(clickName);

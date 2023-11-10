@@ -1,11 +1,19 @@
 import React from 'react';
 import "./style.scss";
+import BronzeImg from "../../../assets/images/Leaderboard Trophies/Bronze Trophy.png";
+import SilverImg from "../../../assets/images/Leaderboard Trophies/Silver Trophy.png";
+import GoldImg from "../../../assets/images/Leaderboard Trophies/Gold Trophy.png";
 
 function Leaderboard() {
   return (
     <div className="leaderboard">
         <h2 className='title'>Daily Mix Leaderboard</h2>
-        <p className='top1'>1. Test1</p>
+        <ul>
+          <li>
+            <img src={GoldImg} alt="1." /><p className='top1'> Test1</p>
+          </li>
+        </ul>
+
         <p className='top2'>2. Test2</p>
         <p className='top3'>3. Test3</p>
     </div>

@@ -1,0 +1,40 @@
+@use "../../utils/globals.scss" as *;
+
+.ranked {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    width: 100vw;
+    height: 92vh;
+
+    main {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        h1 {
+            margin: 0 0 4rem 0;
+
+            font-size: 6rem;
+            color: $primaryText;
+        }
+
+        .genreOptions {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+
+            width: 100%;
+        }
+
+        .backButton {
+            margin: 4rem 0 0 0;
+
+            width: 12rem;
+        }
+    }
+}

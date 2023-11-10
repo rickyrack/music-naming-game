@@ -17,4 +17,25 @@
     border: .2rem solid $secondaryColor;
     border-radius: 1.1rem;
     background-color: $primaryColor;
+
+    color: #CCCCCC;
+
+    section {
+        height: 100%;
+    }
+
+    .matchInfo {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: flex-start;
+
+        height: 140%;
+
+        p {
+            font-size: 2rem;
+            text-align: center;
+            margin: 0;
+        }
+    }
 }

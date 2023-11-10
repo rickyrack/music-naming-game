@@ -1,0 +1,55 @@
+@use "../../../utils/globals.scss" as *;
+
+.genreOption {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    width: 11rem;
+    height: 16rem;
+
+    .imgBox {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        width: 10rem;
+        height: 10rem;
+
+        border-radius: 1.1rem;
+        border: .2rem solid $secondaryColor;
+
+        background-color: $primaryColor;
+
+        img {
+            width: 90%;
+            height: max-content;
+        }
+    }
+
+    Button {
+        font-size: 2.4rem;
+        width: 10rem;
+    }
+}
+
+@keyframes raiseIcon {
+    to {
+        transform: translateY(-.6rem);
+    }
+}
+
+.raiseIcon {
+    animation: raiseIcon .6s both;
+}
+
+@keyframes lowerIcon {
+    to {
+        transform: translateY(.6rem);
+    }
+}
+
+.lowerIcon {
+    animation: lowerIcon .6s both;
+}

@@ -5,6 +5,8 @@ import Navbar from './components/Navbar';
 import Play from './views/Play';
 import Error from './views/Error';
 import HowTo from './views/HowTo';
+import Casual from './views/Casual';
+import Ranked from './views/Ranked';
 
 function App() {
   return (
@@ -14,6 +16,8 @@ function App() {
         <Route path='/' element={<Home />} />
         <Route path='/play' element={<Play />} />
         <Route path='/howto' element={<HowTo />} />
+        <Route path='/ranked' element={<Ranked />} />
+        <Route path='/casual' element={<Casual />} />
         <Route path="*" element={<Error />} />
       </Routes>
     </BrowserRouter>

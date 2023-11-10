@@ -5,8 +5,8 @@ function PlayMenu({ handleClick }) {
   return (
     <menu className="menu">
         <Button text="Back" onClick={() => handleClick("MainMenu")}/>
-        <Button text="Casual" onClick={() => console.log("Casual")}/>
-        <Button text="Ranked" onClick={() => console.log("Ranked")}/>
+        <Button text="Casual" onClick={() => handleClick("CasualPage")}/>
+        <Button text="Ranked" onClick={() => handleClick("RankedPage")}/>
     </menu>
   )
 }
