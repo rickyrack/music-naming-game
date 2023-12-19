@@ -1,1 +1,14 @@
 @use "../../utils/globals.scss" as *;
+
+.error {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    width: 100vw;
+    height: 84vh;
+
+    color: $primaryText;
+    font-size: 4rem;
+}

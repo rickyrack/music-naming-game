@@ -12,10 +12,13 @@ function Leaderboard() {
           <li>
             <img src={GoldImg} alt="1." /><p className='top1'> Test1</p>
           </li>
+          <li>
+            <img src={SilverImg} alt="2." /><p className='top2'> Test2</p>
+          </li>
+          <li>
+            <img src={BronzeImg} alt="3." /><p className='top3'> Test3</p>
+          </li>
         </ul>
-
-        <p className='top2'>2. Test2</p>
-        <p className='top3'>3. Test3</p>
     </div>
   )
 }

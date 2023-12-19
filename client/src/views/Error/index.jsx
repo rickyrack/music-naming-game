@@ -1,9 +1,19 @@
 import React from 'react'
 import "./style.scss";
+import Button from '../../components/Button';
+import { useNavigate } from 'react-router-dom';
 
 function Error() {
+  const navigate = useNavigate();
+
+  const handleClick = () => navigate('/');
+
   return (
-    <div>Error Page</div>
+    <div className='error'>
+      <p>your lost</p>
+      <Button text='Home' onClick={handleClick} />
+    </div>
+
   )
 }
 

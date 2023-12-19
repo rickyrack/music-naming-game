@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import "./style.scss";
-import Button from '../../../components/Button';
+import Button from '../../Button';
 
 function GenreOption({ img, title }) {
   const [genreHover, setGenreHover] = useState(false);

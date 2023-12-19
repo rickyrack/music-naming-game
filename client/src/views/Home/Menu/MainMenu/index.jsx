@@ -3,7 +3,7 @@ import Button from "../../../../components/Button";
 
 function MainMenu({ handleClick }) {
   return (
-    <menu className="menu">
+    <menu>
       <Button text="Practice" onClick={() => handleClick("PracticeMenu")}/>
       <Button text="Play" onClick={() => handleClick("PlayMenu")} />
       <Button text="How To" style="HowTo" onClick={() => handleClick("HowToPage")}/>

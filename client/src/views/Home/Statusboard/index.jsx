@@ -1,12 +1,20 @@
-import React from 'react'
+import React, { useRef, useState } from "react";
 import "./style.scss";
+import Login from "./Login";
 
 function Statusboard({ onlinePlayers }) {
-  return (
-    <div className="statusboard">
+  const [loggedIn, setLoggedIn] = useState(false);
+
+  let LoginForm = <Login />;
+
+  if (loggedIn) LoginForm = <></>;
+
+    return (
+      <div className={loggedIn ? 'statusboard smallBoard' : 'statusboard'}>
         <p>Players Online:<br />26</p>
-    </div>
-  )
+        {LoginForm}
+      </div>
+    );
 }
 
-export default Statusboard
+export default Statusboard;
