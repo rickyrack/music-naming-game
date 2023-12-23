@@ -16,7 +16,7 @@ export const AuthProvider = ({ children }) => {
     useEffect(() => {
       //const jwt =
     
-    }, [])
+    }, [auth])
 
     return (
         <AuthContext.Provider value={{ auth, login, logout }}>

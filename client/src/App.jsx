@@ -9,11 +9,13 @@ import Casual from './views/Casual';
 import Ranked from './views/Ranked';
 import Practice from './views/Practice';
 import Register from './views/Register';
+import { AuthProvider } from './store/AuthContext';
 
 function App() {
   return (
     <BrowserRouter>
       <Navbar />
+      <AuthProvider>
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/play' element={<Play />} />
@@ -24,6 +26,7 @@ function App() {
         <Route path='/register' element={<Register />} />
         <Route path="*" element={<Error />} />
       </Routes>
+      </AuthProvider>
     </BrowserRouter>
   )
 }
