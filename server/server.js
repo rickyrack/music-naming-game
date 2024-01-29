@@ -4,7 +4,6 @@ const path = require('path');
 require('dotenv').config();
 require('colors');
 const cors = require('cors');
-const jwtCheck = require('./middleware/auth0');
 
 const connectDB = require('./db');
 
@@ -24,8 +23,6 @@ app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   next();
 });
-
-app.use('/user', jwtCheck, userRouter);
 
 const server = app.listen(port, () => {
   console.log(`Server started on port ${port}`.magenta)

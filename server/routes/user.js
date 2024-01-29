@@ -12,8 +12,8 @@ router.post('/login', async (req, res) => {
 });
 
 //GET User Data
-router.get('/', async (req, res) => {
-    console.log(req.auth.token)
+router.get('/:username', async (req, res) => {
+    console.log(req.params);
     res.status(201).send(res.data);
 })
 
