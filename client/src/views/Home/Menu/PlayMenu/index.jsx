@@ -1,12 +1,12 @@
 import React from 'react'
-import Button from '../../../../components/Button'
+import Button1 from '../../../../components/Button'
 
 function PlayMenu({ handleClick }) {
   return (
     <menu>
-        <Button text="Back" onClick={() => handleClick("MainMenu")}/>
-        <Button text="Casual" onClick={() => handleClick("CasualPage")}/>
-        <Button text="Ranked" onClick={() => handleClick("RankedPage")}/>
+        <Button1 text="Back" onClick={() => handleClick("MainMenu")}/>
+        <Button1 text="Casual" onClick={() => handleClick("CasualPage")}/>
+        <Button1 text="Ranked" onClick={() => handleClick("RankedPage")}/>
     </menu>
   )
 }

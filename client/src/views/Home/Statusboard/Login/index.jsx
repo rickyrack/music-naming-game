@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { api } from "../../../../services/api";
 import './style.scss';
+import Button1 from "../../../../components/Button";
 
 function Login() {
     const [username, setUsername] = useState('');
@@ -9,6 +10,7 @@ function Login() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
+            login
             const res = await api.post('/user/login', {
                 username,
                 password
@@ -36,7 +38,7 @@ function Login() {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        <button type="submit">Submit</button>
+        <Button1 type="submit" text="Submit" />
       </form>
     </div>
   );

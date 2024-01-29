@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import './style.scss';
 import axios from 'axios';
+import Button1 from '../../components/Button';
 
 function Register() {
     const [username, setUsername] = useState('');
@@ -28,7 +29,7 @@ function Register() {
             <input type="text" placeholder='Username' name='username' value={username} onChange={e => setUsername(e.target.value)} />
             <input type="password" placeholder='Password' name='password' value={password} onChange={e => setPassword(e.target.value)} />
             <input type="password2" placeholder='Confirm Password' name='password' value={password2} onChange={e => setPassword2(e.target.value)} />
-            <button type='submit'>Submit</button>
+            <Button1 type='submit' text='Submit' />
         </form>
     </div>
   )

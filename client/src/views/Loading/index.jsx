@@ -3,7 +3,7 @@ import './style.scss';
 
 function Loading() {
   return (
-    <div>Loading...</div>
+    <div>Loading</div>
   )
 }
 

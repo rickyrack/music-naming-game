@@ -1,6 +1,6 @@
 @use "../../utils/globals.scss" as *;
 
-button {
+.Button1 {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -23,7 +23,7 @@ button {
     font-family: 'Bubblegum Sans', sans-serif;
 }
 
-button:hover {
+.Button1:hover {
     filter: brightness(0.84);
     border: .1rem solid rgb(29, 29, 29);
     box-shadow: 0rem 0rem .5rem rgb(29, 29, 29);

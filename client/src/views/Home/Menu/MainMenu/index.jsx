@@ -1,12 +1,12 @@
 import "./style.scss";
-import Button from "../../../../components/Button";
+import Button1 from "../../../../components/Button";
 
 function MainMenu({ handleClick }) {
   return (
     <menu>
-      <Button text="Practice" onClick={() => handleClick("PracticeMenu")}/>
-      <Button text="Play" onClick={() => handleClick("PlayMenu")} />
-      <Button text="How To" style="HowTo" onClick={() => handleClick("HowToPage")}/>
+      <Button1 text="Practice" onClick={() => handleClick("PracticeMenu")}/>
+      <Button1 text="Play" onClick={() => handleClick("PlayMenu")} />
+      <Button1 text="How To" style="HowTo" onClick={() => handleClick("HowToPage")}/>
     </menu>
   );
 }

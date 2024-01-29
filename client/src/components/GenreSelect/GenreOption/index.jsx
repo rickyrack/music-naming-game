@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import "./style.scss";
-import Button from '../../Button';
+import Button1 from '../../Button';
 
 function GenreOption({ img, title }) {
   const [genreHover, setGenreHover] = useState(false);
@@ -12,7 +12,7 @@ function GenreOption({ img, title }) {
   return (
     <div className="genreOption">
         {genreImg}
-        <Button text={title} onMouseEnter={() => setGenreHover(true)} onMouseOut={() => setGenreHover(false)} />
+        <Button1 text={title} onMouseEnter={() => setGenreHover(true)} onMouseOut={() => setGenreHover(false)} />
     </div>
   )
 }

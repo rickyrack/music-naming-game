@@ -1,29 +1,54 @@
 @use "../../utils/globals.scss" as *;
 
 nav {
-    display: flex;
-    flex-direction: row;
+  display: flex;
+  flex-direction: row;
 
-    position: absolute;
-    top: 0;
-    height: 7rem;
+  position: absolute;
+  top: 0;
+  height: 7rem;
+  width: 100%;
+
+  section {
     width: 100%;
+    height: 100%;
+  }
 
-    section {
-        width: 100%;
-        height: 100%;
+  .logo {
+    display: flex;
+    width: 110%;
+
+    img {
+      position: relative;
+      margin: 0 0 0 0.4rem;
+      align-self: center;
+      transform: scale(68%);
+    }
+  }
+
+  .profile {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    button {
+      display: flex;
+      width: auto;
+      height: auto;
+      background-color: rgba(0, 0, 0, 0);
+      border: none;
+      margin: 0 0.4rem 1.1rem 0;
     }
 
-    .logo {
-        display: flex;
-        width: 110%;
-
-        img {
-            position: relative;
-            margin: 0 0 0 .4rem;
-            align-self: center;
-            transform: scale(68%);
-        }
+    button:hover {
+      filter: brightness(0.84);
+      //border: .1rem solid rgb(29, 29, 29);
+      //border-radius: 20rem;
+      //box-shadow: 0rem 0rem .5rem rgb(29, 29, 29);
+      cursor: pointer;
     }
 
+    img {
+    }
+  }
 }
