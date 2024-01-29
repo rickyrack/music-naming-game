@@ -1,6 +1,8 @@
 const express = require('express');
 const router = express.Router();
 
+//Testing Merge
+
 // POST Create user
 router.post('/register', async (req, res) => {
     res.status(201).json(req.body);
