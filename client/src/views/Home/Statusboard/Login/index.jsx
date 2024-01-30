@@ -2,19 +2,22 @@ import React, { useState } from "react";
 import { api } from "../../../../services/api";
 import './style.scss';
 import Button1 from "../../../../components/Button";
+import { useAuth } from "../../../../store/AuthContext";
 
 function Login() {
+    const { login } = useAuth();
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            login
+            const loginData = await login(username, password);
             const res = await api.post('/user/login', {
                 username,
                 password
             });
+
             console.log(res);
         } catch (err) {
             

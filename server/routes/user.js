@@ -12,9 +12,8 @@ router.post('/login', async (req, res) => {
 });
 
 //GET User Data
-router.get('/:username', async (req, res) => {
-    console.log(req.params);
-    res.status(201).send(res.data);
+router.get('/:email', async (req, res) => {
+    res.status(200).send(req.params.email);
 })
 
 module.exports = router;

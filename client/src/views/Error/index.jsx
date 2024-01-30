@@ -10,7 +10,7 @@ function Error() {
 
   return (
     <div className='error'>
-      <p>your lost</p>
+      <p>Your lost.</p>
       <Button text='Home' onClick={handleClick} />
     </div>
 

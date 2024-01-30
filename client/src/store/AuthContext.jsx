@@ -14,21 +14,34 @@ export const AuthProvider = ({ children }) => {
     const [user, setUser] = useState();
     const navigate = useNavigate();
 
-    const register = (email, password) => {
-        return createUserWithEmailAndPassword(auth, email, password);
+    const register = async (email, password) => {
+        console.log(email)
+        console.log(password)
+        try {
+            return await createUserWithEmailAndPassword(auth, email, password);
+        } catch (error) {
+            navigate('/');
+        }
+        
     }
 
-    const login = (email, password) => {
+    const login = async (email, password) => {
         try {
-            const signedIn = signInWithEmailAndPassword(auth, email, password);
+            const signedIn = await signInWithEmailAndPassword(auth, email, password);
             return signedIn
         } catch (error) {
             navigate('/register');
         }
     }
 
-    const logout = () => {
-        return signOut(auth);
+    const logout = async () => {
+        try {
+            navigate('/');
+            return await signOut(auth);
+        } catch (error) {
+            navigate('/');
+        }
+
     }
 
     // check after page is rendered

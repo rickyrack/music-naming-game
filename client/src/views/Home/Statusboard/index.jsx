@@ -1,11 +1,24 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "./style.scss";
 import Login from "./Login";
 import { useAuth } from "../../../store/AuthContext";
+import { api } from "../../../services/api";
 
 function Statusboard({ onlinePlayers }) {
   const { user } = useAuth();
-  let LoginForm = user ?  <p>{user}</p>: <Login />;
+  const [userData, setUserData] = useState({});
+
+  useEffect(() => {
+    const fetchUser = async () => {
+      const res = await api.get(`/user/${user.email}`);
+      setUserData(res);
+    }
+
+    fetchUser();
+  }, [])
+
+
+  let LoginForm = user ? <p>{userData.data}</p>: <Login />;
 
     return (
       <div className={user ? 'statusboard smallBoard' : 'statusboard'}>

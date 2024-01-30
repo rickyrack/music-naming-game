@@ -24,11 +24,7 @@ function Navbar() {
       </section>
       <section className="profile">
         {user && location.pathname === "/profile" ? (
-          <button
-            onClick={() =>
-              logout({ logoutParams: { returnTo: window.location.origin } })
-            }
-          >
+          <button onClick={async () => await logout()} >
             <img width="60" height="60" src={logoutImg} alt="logout" />
           </button>
         ) : user ? (
@@ -36,7 +32,7 @@ function Navbar() {
             <img width="70" height="70" src={profileImg} alt="profile" style={{marginRight: "-.4rem"}} />
           </button>
         ) : (
-          <button onClick={() => login()}>
+          <button onClick={() => navigate('/')}>
             <img width="60" height="60" src={loginImg} alt="login" />
           </button>
         )}
