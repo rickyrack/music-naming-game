@@ -10,7 +10,7 @@ function Statusboard({ onlinePlayers }) {
 
   useEffect(() => {
     const fetchUser = async () => {
-      const res = await api.get(`/user/${user.email}`);
+      const res = await api.get(`/user/${user.uid}`);
       setUserData(res);
     }
 

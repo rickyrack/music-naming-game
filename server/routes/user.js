@@ -13,9 +13,9 @@ router.post('/login', async (req, res) => {
     res.status(201).json('blah');
 });
 
-//GET User Data
-router.get('/:email', async (req, res) => {
-    res.status(200).send(req.params.email);
+//GET Get User Data
+router.get('/:uid', async (req, res) => {
+    res.status(200).send(req.params.uid);
 })
 
 module.exports = router;

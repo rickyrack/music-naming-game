@@ -23,13 +23,13 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/play" element={<ProtectedRoute component={Play} />} />
+        <Route path="/play" element={<ProtectedRoute Component={Play} />} />
         <Route path="/howto" element={<HowTo />} />
         <Route path="/register" element={<Register />} />
-        <Route path="/ranked" element={<ProtectedRoute component={Ranked} />} />
-        <Route path="/casual" element={<ProtectedRoute component={Casual} />} />
-        <Route path="/practice" element={<ProtectedRoute component={Practice} />} />
-        <Route path="/profile" element={<ProtectedRoute component={Profile} />} />
+        <Route path="/ranked" element={<ProtectedRoute Component={Ranked} />} />
+        <Route path="/casual" element={<ProtectedRoute Component={Casual} />} />
+        <Route path="/practice" element={<ProtectedRoute Component={Practice} />} />
+        <Route path="/profile" element={<ProtectedRoute Component={Profile} />} />
         <Route path="*" element={<Error />} />
       </Routes>
     </>
