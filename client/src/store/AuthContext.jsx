@@ -2,6 +2,7 @@ import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } f
 import { createContext, useContext, useEffect, useState } from "react";
 import auth from "../config/firebase";
 import { useNavigate } from "react-router-dom";
+import { api } from "../services/api";
 
 const AuthContext = createContext();
 
@@ -14,21 +15,34 @@ export const AuthProvider = ({ children }) => {
     const [user, setUser] = useState();
     const navigate = useNavigate();
 
-    const register = async (email, password) => {
-        console.log(email)
-        console.log(password)
+    const register = async (email, password, username) => {
+        if (user) {
+            console.log('Error: User already signed in')
+            return;
+        }
         try {
-            return await createUserWithEmailAndPassword(auth, email, password);
-        } catch (error) {
+            const newUser = await createUserWithEmailAndPassword(auth, email, password);
+            const res = await api.post('/user/register', {
+                email,
+                username
+            });
             navigate('/');
+            return;
+        } catch (error) {
+            console.log(`Error: ${error.message}`);
         }
         
     }
 
     const login = async (email, password) => {
+        if (user) return;
         try {
-            const signedIn = await signInWithEmailAndPassword(auth, email, password);
-            return signedIn
+            await signInWithEmailAndPassword(auth, email, password);
+            const res = await api.post('/user/login', {
+                email,
+                password
+            });
+            return;
         } catch (error) {
             navigate('/register');
         }

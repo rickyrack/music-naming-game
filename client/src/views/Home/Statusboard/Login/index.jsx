@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { api } from "../../../../services/api";
 import './style.scss';
 import Button1 from "../../../../components/Button";
 import { useAuth } from "../../../../store/AuthContext";
@@ -13,13 +12,7 @@ function Login() {
         e.preventDefault();
         try {
             const loginData = await login(username, password);
-            const res = await api.post('/user/login', {
-                username,
-                password
-            });
-
-            console.log(res);
-        } catch (err) {
+        } catch (error) {
             
         }
     }

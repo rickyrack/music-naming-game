@@ -25,7 +25,7 @@ app.use(function(req, res, next) {
   next();
 });
 
-app.use('/user', auth, userRouter);
+app.use('/user', userRouter);
 
 const server = app.listen(port, () => {
   console.log(`Server started on port ${port}`.magenta)

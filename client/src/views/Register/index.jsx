@@ -1,33 +1,62 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './style.scss';
-import { api } from '../../services/api';
 import Button1 from '../../components/Button';
 import { useAuth } from '../../store/AuthContext';
+import { useNavigate } from 'react-router-dom';
+import { api } from '../../services/api';
 
 function Register() {
-    const { register } = useAuth();
+    const navigate = useNavigate();
+    const { register, user } = useAuth();
     const [email, setEmail] = useState('');
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [password2, setPassword2] = useState('');
+    const [errorMsg, setErrorMsg] = useState('');
+
+    useEffect(() => {
+      if (user) navigate('/');
+
+    }, [])
+    
+
+    const checkRegisterData = async () => {
+        try {
+            const res = await api.get('/user/register', {
+                username,
+                email
+            });
+            return res;
+        } catch (error) {
+            console.log(`Error: ${error.message}`);
+        }
+    }
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         if (password !== password2) {
-            console.log('passwords do not match');
+            console.log('Passwords do not match');
+            setErrorMsg('Passwords do not match.');
+            return;
+        }
+        if (password.length < 6) {
+            console.log('Password too short');
+            setErrorMsg('Password must be atleast 6 characters.');
+            return;
+        }
+        const validData = await checkRegisterData();
+        if (validData === "Username Exists") {
+            setErrorMsg("Username already exists.");
+            return;
+        }
+        if (validData === "Email Exists") {
+            setErrorMsg("Email already registered.");
             return;
         }
         try {
-            const registerData = await register(email, password);
-            const res = await api.post('/user/register', {
-                email,
-                username,
-                password,
-                password2
-            });
-            console.log(res);
-        } catch (err) {
-            console.log(`Error: ${err.message}`);
+            await register(email, password, username);
+        } catch (error) {
+            console.log(`Error: ${error.message}`);
         }
     }
 
@@ -41,6 +70,7 @@ function Register() {
             <input type="password" placeholder='Confirm Password' name='password' value={password2} onChange={e => setPassword2(e.target.value)} />
             <Button1 type='submit' text='Submit' />
         </form>
+        <p className="errorMsg">{errorMsg}</p>
     </div>
   )
 }

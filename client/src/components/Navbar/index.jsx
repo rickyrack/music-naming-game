@@ -32,7 +32,7 @@ function Navbar() {
             <img width="70" height="70" src={profileImg} alt="profile" style={{marginRight: "-.4rem"}} />
           </button>
         ) : (
-          <button onClick={() => navigate('/')}>
+          <button onClick={() => navigate('/register')}>
             <img width="60" height="60" src={loginImg} alt="login" />
           </button>
         )}

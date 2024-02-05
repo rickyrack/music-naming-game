@@ -2,14 +2,15 @@ import React, { useEffect, useState } from "react";
 import "./style.scss";
 import axios from "axios";
 import { api } from "../../services/api";
+import Button1 from "../../components/Button";
+import { useAuth } from "../../store/AuthContext";
 
 function Profile() {
-  //const { userData } = 
+  const { user, logout } = useAuth();
 
   useEffect(() => {
     const fetchUserData = async () => {
         try {
-            const token = 'test';
             console.log(user)
             const res = await api.get(`/user:${user.username}`, {
               headers: {
@@ -24,10 +25,15 @@ function Profile() {
     //fetchUserData();
   }, []);
 
+  const logoutUser = async () => {
+    await logout();
+  }
+
   return (
     <div>
       <h1>Profile Page</h1>
       <h2>Username Here</h2>
+      <Button1 text='Logout' onClick={logoutUser}/>
     </div>
   );
 }
