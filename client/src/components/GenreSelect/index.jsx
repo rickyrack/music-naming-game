@@ -1,5 +1,5 @@
 import React from 'react'
-import "./style.scss";
+import "./style.module.scss";
 import GenreOption from './GenreOption';
 import RockImg from "../../assets/images/Genre Images/Rock.png";
 import ClassicalImg from "../../assets/images/Genre Images/Classical.png";

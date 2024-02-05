@@ -1,5 +1,5 @@
 import React from 'react'
-import "./style.scss";
+import "./style.module.scss";
 import TrackInfo from './TrackInfo';
 import unknownTrackImg from "../../../../assets/images/unknown track.png";
 

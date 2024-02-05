@@ -1,5 +1,5 @@
 import React from 'react'
-import "./style.scss";
+import "./style.module.scss";
 import MatchInfo from './components/MatchInfo';
 import MusicPlayer from './components/MusicPlayer';
 import TrackInput from './components/TrackInput';

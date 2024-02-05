@@ -1,5 +1,5 @@
 import React from 'react';
-import "./style.scss";
+import "./style.module.scss";
 import BronzeImg from "../../../assets/images/Leaderboard Trophies/Bronze Trophy.png";
 import SilverImg from "../../../assets/images/Leaderboard Trophies/Silver Trophy.png";
 import GoldImg from "../../../assets/images/Leaderboard Trophies/Gold Trophy.png";

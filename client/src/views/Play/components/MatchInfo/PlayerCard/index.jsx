@@ -1,5 +1,5 @@
 import React from 'react'
-import "./style.scss";
+import "./style.module.scss";
 
 function PlayerCard({ username, profileImg, score }) {
     // change to placeholders instead of figma copy

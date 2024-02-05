@@ -1,5 +1,5 @@
 import React from "react";
-import "./style.scss";
+import "./style.module.scss";
 import logo from "../../assets/images/Logo.png";
 import { useLocation, useNavigate } from "react-router-dom";
 import logoutImg from "../../assets/images/logout.png";
