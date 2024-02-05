@@ -1,10 +1,5 @@
 import React, { useState } from "react";
-<<<<<<< HEAD
-import './style.scss';
-=======
-import { api } from "../../../../services/api";
-import './style.module.scss';
->>>>>>> 247604b1aca86ad078bad0bdceecccb72ff64709
+import './styles.scss';
 import Button1 from "../../../../components/Button";
 import { useAuth } from "../../../../store/AuthContext";
 
@@ -36,6 +31,7 @@ function Login() {
           type="password"
           placeholder="Password"
           name="password"
+          autoComplete='off'
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />

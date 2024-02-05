@@ -1,6 +1,6 @@
 import React from 'react'
 import Button1 from '../../../../components/Button'
-import './style.module.css';
+import './styles.scss';
 function PlayMenu({ handleClick }) {
   return (
     <menu>

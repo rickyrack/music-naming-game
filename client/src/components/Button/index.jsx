@@ -1,9 +1,9 @@
 import React from 'react'
-import "./style.module.scss";
+import "./styles.scss";
 
 function Button1({ className, text, onClick, onMouseEnter, onMouseOut }) {
   return (
-    <button className={`${className} Button1`} onClick={onClick} onMouseEnter={onMouseEnter} onMouseOut={onMouseOut} >
+    <button className={`${className} Button1Class`} onClick={onClick} onMouseEnter={onMouseEnter} onMouseOut={onMouseOut} >
         {text}
     </button>
   )

@@ -1,5 +1,5 @@
 import React from 'react'
-import "./style.module.scss";
+import "./styles.scss";
 import Leaderboard from './Leaderboard';
 import Statusboard from './Statusboard';
 import Menu from './Menu';

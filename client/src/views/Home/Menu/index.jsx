@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import "./style.module.scss";
+import "./styles.scss";
 import MainMenu from './MainMenu';
 import PlayMenu from './PlayMenu';
 import { useNavigate } from 'react-router-dom';

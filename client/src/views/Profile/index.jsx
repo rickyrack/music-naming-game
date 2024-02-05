@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "./style.module.scss";
+import "./styles.scss";
 import axios from "axios";
 import { api } from "../../services/api";
 import Button1 from "../../components/Button";

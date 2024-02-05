@@ -1,5 +1,5 @@
 import React from 'react'
-import "./style.module.scss";
+import "./styles.scss";
 
 function TrackInfo({ trackData }) {
   return (

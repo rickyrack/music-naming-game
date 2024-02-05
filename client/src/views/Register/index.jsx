@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import './style.module.scss';
+import './styles.scss';
 import Button1 from '../../components/Button';
 import { useAuth } from '../../store/AuthContext';
 import { useNavigate } from 'react-router-dom';
@@ -66,8 +66,8 @@ function Register() {
         <form id='registerForm' onSubmit={e => handleSubmit(e)}>
             <input type="text" placeholder='Email' name='email' value={email} onChange={e => setEmail(e.target.value)} />
             <input type="text" placeholder='Username' name='username' value={username} onChange={e => setUsername(e.target.value)} />
-            <input type="password" placeholder='Password' name='password' value={password} onChange={e => setPassword(e.target.value)} />
-            <input type="password" placeholder='Confirm Password' name='password' value={password2} onChange={e => setPassword2(e.target.value)} />
+            <input type="password" placeholder='Password' name='password' autoComplete='off' value={password} onChange={e => setPassword(e.target.value)} />
+            <input type="password" placeholder='Confirm Password' name='password' autoComplete='off' value={password2} onChange={e => setPassword2(e.target.value)} />
             <Button1 type='submit' text='Submit' />
         </form>
         <p className="errorMsg">{errorMsg}</p>

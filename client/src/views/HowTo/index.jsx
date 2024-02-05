@@ -1,5 +1,5 @@
 import React from 'react'
-import "./style.module.scss";
+import "./styles.scss";
 import Button1 from '../../components/Button';
 import { useNavigate } from 'react-router-dom';
 

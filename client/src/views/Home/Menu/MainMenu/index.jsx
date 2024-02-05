@@ -1,4 +1,4 @@
-import "./style.module.scss";
+import "./styles.scss";
 import Button1 from "../../../../components/Button";
 
 function MainMenu({ handleClick }) {

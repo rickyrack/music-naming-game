@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import "./style.module.scss";
+import "./styles.scss";
 import Button1 from '../../Button';
 
 function GenreOption({ img, title }) {
