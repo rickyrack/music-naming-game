@@ -1,5 +1,5 @@
 import React from 'react'
-import "./style.scss";
+import "./style.module.scss";
 import PlayerCard from './PlayerCard';
 
 function MatchInfo({ p1Data, p2Data, matchData }) {

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import './style.scss';
+import './style.module.scss';
 import Button1 from '../../components/Button';
 import { useAuth } from '../../store/AuthContext';
 import { useNavigate } from 'react-router-dom';

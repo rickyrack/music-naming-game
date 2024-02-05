@@ -1,5 +1,5 @@
 import React from 'react'
-import './style.scss';
+import './style.module.scss';
 import GenreSelect from '../../components/GenreSelect';
 import { useLocation } from 'react-router-dom';
 
