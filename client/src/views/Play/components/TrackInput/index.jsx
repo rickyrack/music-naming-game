@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import "./style.scss";
+import "./style.module.scss";
 import Button from "../../../../components/Button";
 
 function TrackInput() {

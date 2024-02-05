@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import "./style.scss";
+import "./style.module.scss";
 import Login from "./Login";
 import { useAuth } from "../../../store/AuthContext";
 import { api } from "../../../services/api";

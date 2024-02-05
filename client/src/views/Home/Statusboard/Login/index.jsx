@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { api } from "../../../../services/api";
-import './style.scss';
+import './style.module.scss';
 import Button1 from "../../../../components/Button";
 import { useAuth } from "../../../../store/AuthContext";
 
