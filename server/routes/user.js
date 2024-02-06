@@ -50,6 +50,7 @@ router.get("/register", async (req, res) => {
 router.get("/login", async (req, res) => {
   let user;
   try {
+    console.log('here')
     console.log(req)
     user = await User.findOne({ username: req.body.username });
   } catch (error) {
