@@ -7,8 +7,8 @@ import { useNavigate } from "react-router-dom";
 
 function Statusboard({ onlinePlayers }) {
   const { user, loading } = useAuth();
-  const [userData, setUserData] = useState(null);
-  
+  const [username, setUsername] = useState(null);
+
   useEffect(() => {
     let isMounted = true;
 
@@ -18,9 +18,9 @@ function Statusboard({ onlinePlayers }) {
           const res = await api.get(`/user/${user.uid}`);
 
           if (isMounted) {
-            setUserData(res.data)
+            setUsername(res.data.username);
           }
-        };
+        }
       } catch (error) {
         console.log(`Error: ${error.message}`);
       }
@@ -29,17 +29,26 @@ function Statusboard({ onlinePlayers }) {
     fetchUser();
     return () => {
       isMounted = false;
-    }
+    };
   }, [user]);
 
   return (
-    <div className={userData ? "statusboard smallBoard" : "statusboard"}>
+    <div className={user ? "statusboard smallBoard" : "statusboard"}>
       <p>
         Players Online:
         <br />
         26
       </p>
-      {userData ? <p className="userText">{userData}</p> : <Login />}
+      {user ? (
+        <>
+          <div className="pfpContainer">
+            <img className="pfp" src="https://api.dicebear.com/7.x/bottts/svg" alt="avatar" />
+          </div>
+          <p className="username">{username}</p>
+        </>
+      ) : (
+        <Login />
+      )}
     </div>
   );
 }

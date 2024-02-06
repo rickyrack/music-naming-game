@@ -53,11 +53,7 @@ function Register() {
             setErrorMsg("Email already registered.");
             return;
         }
-        try {
-            await register(email, password, username);
-        } catch (error) {
-            console.log(`Error: ${error.message}`);
-        }
+        await register(email, password, username);
     }
 
   return (

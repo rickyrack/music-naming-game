@@ -12,8 +12,8 @@ const server_url = process.env.SERVER_URL || "http://localhost:5000";
 
 const app = express();
 
-const userRouter = require('./routes/user');
 const auth = require('./middleware/auth');
+const userRouter = require('./routes/user');
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));

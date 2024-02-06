@@ -11,6 +11,11 @@ const userSchema = new mongoose.Schema({
         required: true,
         unique: true
     },
+    authUID: {
+        type: String,
+        required: true,
+        unique: true
+    },
     createdAt: {
         type: Date,
         required: true,

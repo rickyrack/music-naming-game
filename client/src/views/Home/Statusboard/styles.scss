@@ -7,7 +7,7 @@
     align-items: center;
 
     width: 20rem;
-    height: 20rem;
+    height: 23rem;
 
     border-radius: 1.1rem;
     border: .2rem solid $secondaryColor;
@@ -29,7 +29,7 @@
         font-size: 2.6rem;
     }
 
-    .userText {
+    .username {
         display: block;
         font-size: 2.2rem;
         width: 85%;
@@ -38,8 +38,22 @@
         white-space: nowrap;
         text-overflow: ellipsis;
     }
+
+    .pfpContainer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 5rem;
+        width: 5rem;
+        border-radius: 10rem;
+        background-color: rgba(0, 0, 0, 0.253);
+    }
+    .pfp {
+        height: 85%;
+        width: auto;
+    }
 }
 
 .smallBoard {
-    height: 10rem;
+    height: 15rem;
 }

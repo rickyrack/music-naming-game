@@ -7,68 +7,71 @@ import { api } from "../services/api";
 const AuthContext = createContext();
 
 export const useAuth = () => {
-    return useContext(AuthContext);
-}
+  return useContext(AuthContext);
+};
 
 export const AuthProvider = ({ children }) => {
-    const [loading, setLoading] = useState(true);
-    const [user, setUser] = useState();
-    const navigate = useNavigate();
+  const [loading, setLoading] = useState(true);
+  const [user, setUser] = useState();
+  const navigate = useNavigate();
 
-    const register = async (email, password, username) => {
-        if (user) {
-            console.log('Error: User already signed in')
-            return;
-        }
-        try {
-            const newUser = await createUserWithEmailAndPassword(auth, email, password);
-            const res = await api.post('/user/register', {
-                email,
-                username
-            });
-            navigate('/');
-            return;
-        } catch (error) {
-            console.log(`Error: ${error.message}`);
-        }
-        
+  const register = async (email, password, username) => {
+    if (user) {
+      console.log("Error: User already signed in");
+      return;
     }
-
-    const login = async (email, password) => {
-        if (user) return;
-        try {
-            await signInWithEmailAndPassword(auth, email, password);
-            const res = await api.post('/user/login', {
-                email,
-                password
-            });
-            return;
-        } catch (error) {
-            navigate('/register');
-        }
-    }
-
-    const logout = async () => {
-        try {
-            navigate('/');
-            return await signOut(auth);
-        } catch (error) {
-            navigate('/');
-        }
-
-    }
-
-    // check after page is rendered
-    useEffect(() => {
-      return auth.onAuthStateChanged((user) => {
-        setUser(user);
-        setLoading(false);
+    try {
+      const newUser = await createUserWithEmailAndPassword(auth, email, password);
+      const authUID = newUser.user.uid;
+      const res = await api.post("/user/register", {
+        email: email,
+        username: username,
+        authUID: authUID
       });
-    }, []);
+      navigate("/");
+    } catch (error) {
+      console.log(`Error: ${error.message}`);
+      navigate("/");
+    }
+  };
 
-    return (
-        <AuthContext.Provider value={{ user, login, logout, register, loading }}>
-            {children}
-        </AuthContext.Provider>
-    )
-}
+  const login = async (username, password) => {
+    if (user) return;
+    let email;
+    try {
+      const res = await api.get("/user/login", {
+        username: username
+      });
+      email = res.data.email;
+    } catch (error) {
+      console.log(`Error: ${error.message}`);
+      return false;
+    }
+    try {
+      await signInWithEmailAndPassword(auth, email, password);
+    } catch (error) {
+      console.log(`Error: ${error.message}`);
+      return false;
+    }
+  };
+
+  const logout = async () => {
+    try {
+      navigate("/");
+      await signOut(auth);
+    } catch (error) {
+      console.log(`Error: ${error.message}`);
+      navigate("/");
+    }
+  };
+
+  // check after page is rendered
+  useEffect(() => {
+    return auth.onAuthStateChanged((user) => {
+      setUser(user);
+      setLoading(false);
+    });
+  }, []);
+
+  return <AuthContext.Provider value={{ user, login, logout, register, loading }}>{children}</AuthContext.Provider>;
+};

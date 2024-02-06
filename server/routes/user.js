@@ -10,7 +10,7 @@ router.post("/register", async (req, res) => {
     return res.status(400).send("Error: Missing Email or Username");
   }
 
-  // username check
+  // username check again
   try {
     const usernameExists = await User.findOne({ username: req.body.username });
     const emailExists = await User.findOne({ email: req.body.email });
@@ -23,7 +23,8 @@ router.post("/register", async (req, res) => {
   try {
     const newUser = await User.create({
       username: req.body.username,
-      email: req.body.email
+      email: req.body.email,
+      authUID: req.body.authUID
     });
     return res.status(201).send(`User Created: ${newUser}`);
   } catch (error) {
@@ -45,14 +46,25 @@ router.get("/register", async (req, res) => {
   }
 });
 
-//POST Login User
-router.post("/login", auth, async (req, res) => {
-  res.status(201).json(req.body);
+//GET Login User
+router.get("/login", async (req, res) => {
+  let user;
+  try {
+    console.log(req)
+    user = await User.findOne({ username: req.body.username });
+  } catch (error) {
+    console.log(`Error: ${error.message}`);
+  }
+  if (user) return res.status(200).json(user.email);
+  res.status(400).send('User does not exist.')
+  
 });
 
 //GET Get User Data
 router.get("/:uid", auth, async (req, res) => {
-  res.status(200).json(req.params.uid);
+  const user = await User.findOne({ authUID: req.user.uid });
+  console.log(user)
+  res.status(200).json(user);
 });
 
 module.exports = router;
