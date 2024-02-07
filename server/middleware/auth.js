@@ -6,7 +6,6 @@ const auth = async (req, res, next) => {
         if (!idToken) throw new Error('Unauthorized: No Id Token');
         idToken = req.headers.authorization.split('Bearer ')[1];
         const authUser = await app.auth().verifyIdToken(idToken);
-        console.log(authUser)
         if (authUser) {
             req.user = authUser;
             next();

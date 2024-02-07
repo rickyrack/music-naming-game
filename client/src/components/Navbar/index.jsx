@@ -22,7 +22,7 @@ function Navbar() {
       <section className="logo">
         <img src={logo} alt="Beat Boss" width="100%" />
       </section>
-      <section className="profile">
+      <section className="profileNav">
         {user && location.pathname === "/profile" ? (
           <button onClick={async () => await logout()} >
             <img width="60" height="60" src={logoutImg} alt="logout" />

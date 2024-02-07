@@ -7,33 +7,37 @@ import { useAuth } from "../../store/AuthContext";
 
 function Profile() {
   const { user, logout } = useAuth();
+  const [userData, setUserData] = useState({});
 
   useEffect(() => {
-    const fetchUserData = async () => {
-        try {
-            console.log(user)
-            const res = await api.get(`/user:${user.username}`, {
-              headers: {
-                authorization: `Bearer ${token}`,
-              },
-            });
-            console.log(res);
-          } catch (error) {
-            console.log(error.message);
-          }
+    const fetchUser = async () => {
+      const res = await api.get(`/user/${user.uid}`);
+      setUserData(res.data);
     }
-    //fetchUserData();
-  }, []);
+  
+    fetchUser();
+  }, [])
+  
 
   const logoutUser = async () => {
     await logout();
-  }
+  };
 
   return (
-    <div>
-      <h1>Profile Page</h1>
-      <h2>Username Here</h2>
-      <Button1 text='Logout' onClick={logoutUser}/>
+    <div className="profile">
+      <h1>{userData.username}</h1>
+      <div className="settings">
+        <Button1 text="Change Username" />
+        <div className="avatarSelect">
+          <button>{'<'}</button>
+          <div className="pfpContainer">
+            <img className="pfp" src="https://api.dicebear.com/7.x/bottts/svg" alt="avatar" />
+          </div>
+          <button>{'>'}</button>
+        </div>
+        
+      </div>
+      <Button1 className="profileLogout" text="Logout" onClick={logoutUser} />
     </div>
   );
 }

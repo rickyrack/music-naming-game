@@ -14,8 +14,8 @@ router.post("/register", async (req, res) => {
   try {
     const usernameExists = await User.findOne({ username: req.body.username });
     const emailExists = await User.findOne({ email: req.body.email });
-    if (emailExists) return res.status(400).json('Email Exists');
-    else if (usernameExists) return res.status(400).json('Username Exists');
+    if (emailExists) return res.status(400).json({status: 'Email Exists'});
+    else if (usernameExists) return res.status(400).json({status: 'Username Exists'});
   } catch (error) {
     return res.status(400).send(`Error: ${error.message}`);
   }
@@ -36,35 +36,31 @@ router.post("/register", async (req, res) => {
 //GET Check if register data is valid
 router.get("/register", async (req, res) => {
   try {
-    const usernameExists = await User.findOne({ username: req.body.username });
-    const emailExists = await User.findOne({ email: req.body.email });
-    if (emailExists) return res.status(200).json('Email Exists');
-    else if (usernameExists) return res.status(200).json('Username Exists');
-    else return res.status(200).json(true);
+    const usernameExists = await User.findOne({ username: req.query.username });
+    const emailExists = await User.findOne({ email: req.query.email });
+    if (emailExists) return res.status(200).json({status: 'Email Exists'});
+    else if (usernameExists) return res.status(200).json({status: 'Username Exists'});
+    else return res.status(200).json({status: true});
   } catch (error) {
     res.status(500).send(`Error: ${error.message}`);
   }
 });
 
-//GET Login User
-router.get("/login", async (req, res) => {
+//POST Login User
+router.post("/login", async (req, res) => {
   let user;
   try {
-    console.log('here')
-    console.log(req)
     user = await User.findOne({ username: req.body.username });
   } catch (error) {
     console.log(`Error: ${error.message}`);
   }
-  if (user) return res.status(200).json(user.email);
-  res.status(400).send('User does not exist.')
-  
+  if (user) return res.status(200).json({status: 'Success', email: user.email});
+  res.status(400).json({status: 'User does not exist.'});
 });
 
 //GET Get User Data
 router.get("/:uid", auth, async (req, res) => {
   const user = await User.findOne({ authUID: req.user.uid });
-  console.log(user)
   res.status(200).json(user);
 });
 

@@ -16,6 +16,11 @@ const userSchema = new mongoose.Schema({
         required: true,
         unique: true
     },
+    avatarId: {
+        type: String,
+        required: true,
+        default: 'Felix'
+    },
     createdAt: {
         type: Date,
         required: true,

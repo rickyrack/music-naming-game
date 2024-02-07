@@ -39,10 +39,13 @@ export const AuthProvider = ({ children }) => {
     if (user) return;
     let email;
     try {
-      const res = await api.get("/user/login", {
+      const res = await api.post("/user/login", {
         username: username
       });
-      email = res.data.email;
+      if (res.data.status === 'Success') {
+        email = res.data.email;
+      }
+      else return false;
     } catch (error) {
       console.log(`Error: ${error.message}`);
       return false;

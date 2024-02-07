@@ -2,7 +2,7 @@ import axios from 'axios';
 import auth from '../config/firebase';
 
 const api = axios.create({
-    baseURL: import.meta.env.VITE_AXIOS_BASE_URL,
+    baseURL: import.meta.env.VITE_AXIOS_BASE_URL
 });
 
 const getIdToken = async () => {

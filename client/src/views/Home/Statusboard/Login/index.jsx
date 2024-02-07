@@ -25,6 +25,7 @@ function Login() {
           type="text"
           placeholder="Username"
           name="username"
+          autoComplete="off"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
         />
