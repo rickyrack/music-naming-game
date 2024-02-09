@@ -1,0 +1,15 @@
+@use "../../utils/globals.scss" as *;
+
+.avatarContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10rem;
+    background-color: rgba(0, 0, 0, 0.253);
+
+    .avatarImg {
+      height: 85%;
+      width: auto;
+      padding-bottom: .3rem;
+    }
+}

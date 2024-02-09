@@ -1,21 +1,20 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Loading from '../../views/Loading'
 import { useAuth } from '../../store/AuthContext';
 import { useNavigate } from 'react-router-dom';
 
 function ProtectedRoute({ Component }) {
-  const { user, loading } = useAuth();
+  const { user } = useAuth();
   const navigate = useNavigate();
 
-  if (loading) {
-    return <Loading />;
-  }
+  useEffect(() => {
+    if (!user) navigate('/register');
+
+  }, [])
 
   if (user) {
     return <Component />;
   }
-
-  return navigate('/');
 }
 
 export default ProtectedRoute

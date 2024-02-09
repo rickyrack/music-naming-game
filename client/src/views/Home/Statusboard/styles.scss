@@ -38,23 +38,8 @@
         white-space: nowrap;
         text-overflow: ellipsis;
     }
-
-    .pfpContainer {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 5rem;
-        width: 5rem;
-        border-radius: 10rem;
-        background-color: rgba(0, 0, 0, 0.253);
-
-        .pfp {
-            height: 85%;
-            width: auto;
-        }
-    }
 }
 
 .smallBoard {
-    height: 15rem;
+    height: 16rem;
 }

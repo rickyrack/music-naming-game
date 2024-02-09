@@ -60,8 +60,29 @@ router.post("/login", async (req, res) => {
 
 //GET Get User Data
 router.get("/:uid", auth, async (req, res) => {
-  const user = await User.findOne({ authUID: req.user.uid });
-  res.status(200).json(user);
+  try {
+    const user = await User.findOne({ authUID: req.user.uid });
+    res.status(200).json(user);
+  } catch (error) {
+    console.log(`Error: ${error.message}`);
+    res.status(500).send(`Error: ${error.message}`);
+  }
+
+});
+
+//PUT Update User Settings
+router.put("/:uid/settings", auth, async (req, res) => {
+  try {
+    const user = await User.findOneAndUpdate(
+      { authUID: req.user.uid },
+      { avatarId: req.body.avatarId },
+      { new: true }
+    )
+    res.status(200).json(user);
+  } catch (error) {
+    console.log(`Error: ${error.message}`);
+    res.status(500).send(`Error: ${error.message}`)
+  }
 });
 
 module.exports = router;

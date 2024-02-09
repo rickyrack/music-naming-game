@@ -17,9 +17,9 @@ const userSchema = new mongoose.Schema({
         unique: true
     },
     avatarId: {
-        type: String,
+        type: Number,
         required: true,
-        default: 'Felix'
+        default: Math.floor(Math.random() * 1000) + 1
     },
     createdAt: {
         type: Date,

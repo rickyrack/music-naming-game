@@ -4,6 +4,7 @@ import Login from "./Login";
 import { useAuth } from "../../../store/AuthContext";
 import { api } from "../../../services/api";
 import { useNavigate } from "react-router-dom";
+import Avatar from "../../../components/Avatar";
 
 function Statusboard({ onlinePlayers }) {
   const { user, loading } = useAuth();
@@ -41,9 +42,7 @@ function Statusboard({ onlinePlayers }) {
       </p>
       {user ? (
         <>
-          <div className="pfpContainer">
-            <img className="pfp" src="https://api.dicebear.com/7.x/bottts/svg" alt="avatar" />
-          </div>
+          <Avatar size="5rem" seed={userData.avatarId} />
           <p className="username">{userData.username}</p>
         </>
       ) : (
