@@ -46,7 +46,7 @@ function Profile() {
       console.log(`Error: ${error.message}`);
     }
     await api.put(`/user/${user.uid}/settings`, {
-      avatarId: avatarData.history[avatarData.index],
+      avatarId: avatarData.history[avatarData.index]
     });
   };
 

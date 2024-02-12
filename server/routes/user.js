@@ -1,6 +1,6 @@
 const express = require("express");
-const auth = require("../middleware/auth");
 const router = express.Router();
+const auth = require("../middleware/auth");
 const mongoose = require("mongoose");
 const User = require("../models/User");
 
@@ -72,10 +72,12 @@ router.get("/:uid", auth, async (req, res) => {
 
 //PUT Update User Settings
 router.put("/:uid/settings", auth, async (req, res) => {
+  // updates one setting per request
   try {
+    const settingName = Object.keys(req.body)[0];
     const user = await User.findOneAndUpdate(
       { authUID: req.user.uid },
-      { avatarId: req.body.avatarId },
+      { [`${settingName}`]: req.body[settingName] },
       { new: true }
     )
     res.status(200).json(user);
