@@ -11,7 +11,7 @@ import AllImg from "../../assets/images/Genre Images/All.png";
 import Button from '../../components/Button';
 import { useNavigate } from 'react-router-dom';
 
-function GenreSelect({ title }) {
+function GenreSelect({ title, handleGenre }) {
   const navigate = useNavigate();
 
   const handleBack = () => navigate('/');
@@ -21,12 +21,12 @@ function GenreSelect({ title }) {
         <main>
           <h1>{title}</h1>
           <div className="genreOptions">
-            <GenreOption img={RockImg} title="Rock" />
-            <GenreOption img={ClassicalImg} title="Classical" />
-            <GenreOption img={HipHopImg} title="Hip Hop" />
-            <GenreOption img={CountryImg} title="Country" />
-            <GenreOption img={EDMImg} title="EDM" />
-            <GenreOption img={AllImg} title="All" />
+            <GenreOption img={RockImg} title="Rock" handleGenre={handleGenre} />
+            <GenreOption img={ClassicalImg} title="Classical" handleGenre={handleGenre} />
+            <GenreOption img={HipHopImg} title="Hip Hop" handleGenre={handleGenre} />
+            <GenreOption img={CountryImg} title="Country" handleGenre={handleGenre} />
+            <GenreOption img={EDMImg} title="EDM" handleGenre={handleGenre} />
+            <GenreOption img={AllImg} title="All" handleGenre={handleGenre} />
           </div>
           <Button className='backButton' text='Back' onClick={handleBack} />
         </main>

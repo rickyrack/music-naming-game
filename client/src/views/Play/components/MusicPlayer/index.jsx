@@ -1,10 +1,10 @@
 import React from 'react'
 import "./styles.scss";
 
-function MusicPlayer() {
+function MusicPlayer({ trackData }) {
   return (
     <div className="player">
-      Music Player
+      {trackData}
     </div>
   )
 }

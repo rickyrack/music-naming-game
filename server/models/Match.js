@@ -4,4 +4,4 @@ const matchSchema = new mongoose.Schema({
 
 });
 
-module.exports = mongoose.Model('Match', matchSchema);
+module.exports = mongoose.model('Match', matchSchema);

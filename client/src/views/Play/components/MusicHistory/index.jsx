@@ -17,6 +17,7 @@ function MusicHistory({ historyData }) {
   for (let i = 0; i < 20 - history.length; i++) { // 20 is arbitrarily picked
     history.push(<TrackInfo trackData={unknownTrackData} key={`${i}unknown`} />)
   }
+
   return (
     <div className="history">
       {history}

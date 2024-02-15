@@ -1,19 +1,21 @@
 const express = require('express');
 const router = express.Router();
-const auth = require('../middleware/auth');
 const mongoose = require('mongoose');
 const Match = require('../models/Match');
-const { startPractice, getMatch } = require('../logic/practice');
+const { startSolo, getMatch } = require('../logic/solo');
+const startMatch = require('../logic/matchStore');
 
-// POST start practice mode
-router.post('/start', auth, async (req, res) => {
-    const matchId = await startPractice(req.user.id, req.body.settings);
+// POST start solo mode
+router.post('/start', async (req, res) => {
+    const { matchType, settings } = req.body;
+    const matchId = startMatch([req.user.id], matchType, settings);
     res.cookie('matchId', matchId); // add check if cookie already exists, throw error if true??
     const match = getMatch(matchId);
     res.status(201).json(await match.newTrack());
 });
 
-router.post('/:matchId', auth, async (req, res) => {
+router.post('/:matchId', async (req, res) => {
     // check that user's auth id matches the userId in their matchId class
 })
+
 module.exports = router;

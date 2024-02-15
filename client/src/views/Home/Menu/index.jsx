@@ -21,11 +21,11 @@ function Menu() {
         navigate('/ranked');
         break;
       case "PracticePage":
-        navigate('/practice', { state: { mode: mode }}); // this is incomplete and is just its own page right now
+        navigate('/practice', { state: { mode: mode }});
         break;
 
       default:
-        setMenu(clickName);
+        setMenu(clickName); // temp
         break;
     }
   }

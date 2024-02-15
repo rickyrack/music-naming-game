@@ -1,0 +1,36 @@
+@use "../../../../../utils/globals.scss" as *;
+
+.playerCard {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    
+    width: 100%;
+
+    img {
+        width: 8rem;
+        height: 8rem;
+        border-radius: 10rem;
+    }
+
+    .playerInfo {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        width: 50%;
+
+        p {
+            margin: 0;
+
+            text-align: center;
+            font-size: 1.6rem;
+            color: #CCCCCC;
+        }
+
+        .scoreText {
+            font-size: 1.8rem;
+        }
+    }
+}
