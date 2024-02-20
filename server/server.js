@@ -17,7 +17,6 @@ const { checkMatchStatus } = require("./middleware/checkMatchStatus");
 const userRouter = require("./routes/user");
 const soloRouter = require("./routes/solo");
 
-
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
@@ -29,7 +28,7 @@ app.use(function (req, res, next) {
 });
 
 app.use("/user", userRouter);
-app.use("/solo", auth, checkMatchStatus, soloRouter);
+app.use("/solo", auth, soloRouter);
 
 const server = app.listen(port, () => {
   console.log(`Server started on port ${port}`.magenta);

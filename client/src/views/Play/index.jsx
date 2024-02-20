@@ -3,24 +3,36 @@ import "./styles.scss";
 import Practice from "./Practice";
 import Online from './Online';
 import { useLocation, useNavigate } from 'react-router-dom';
+import { api } from '../../services/api';
+import Cookies from 'js-cookie';
 
 function Play() {
   const location = useLocation();
   const navigate = useNavigate();
-  let display = <h1>Loading...</h1>
+  const [matchType, setMatchType] = useState('');
+  let display = 
+  matchType === 'practice'
+  ? <Practice />
+  : matchType === 'online'
+  ? <Online />
+  : <h1>Loading...</h1>
 
   useEffect(() => {
-    // if play page was visited improperly, go to home
-    if (!location.state?.online) return navigate('/');
+    const fetchMatchData = async () => {
+      try {
+        const res = await api.get(`/solo/${Cookies.get('matchId')}?option=matchType`);
+        setMatchType(res.data.optionData);
+      } catch (error) {
+        console.log(`${error}`)
+        navigate('/');
+      }
+    }
 
-    if (location.state.online) display = <Online />;
-    else display = <Practice />
+    fetchMatchData();
   }, [])
 
 
-  return (
-    {display}
-  )
+  return display;
 }
 
 export default Play

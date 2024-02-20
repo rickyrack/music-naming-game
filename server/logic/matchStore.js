@@ -14,7 +14,7 @@ const getMatch = (matchId) => {
 
 const findUserInMatch = (userId) => {
     let foundMatchId = false;
-    matchStore.keys().forEach(matchId => {
+    [...matchStore.keys()].forEach(matchId => {
         if (matchStore.get(matchId).players.includes(userId)) foundMatchId = matchId;
     });
     return foundMatchId;
@@ -24,7 +24,7 @@ class Match {
     constructor(players, matchType, { mode, genre }) {
         this.players = players;
         this.matchType = matchType;
-        this.mode = mode;
+        this.mode = mode; // affects round timer and/or winScore
         this.genre = genre;
         this.winScore = 10000; // can be changed later or maybe a match setting
     }

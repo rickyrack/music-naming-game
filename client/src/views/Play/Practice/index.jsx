@@ -1,18 +1,19 @@
 // temp imports
-import profileImg1 from "../../assets/images/temp/player1.png";
-import profileImg2 from "../../assets/images/temp/player2.png";
-import AlbumCover from "../../assets/images/temp/Test Album Cover.jpg";
-import AlbumCover2 from "../../assets/images/temp/Test Album Cover 2.jpg";
+import profileImg1 from "../../../assets/images/temp/player1.png";
+import profileImg2 from "../../../assets/images/temp/player2.png";
+import AlbumCover from "../../../assets/images/temp/Test Album Cover.jpg";
+import AlbumCover2 from "../../../assets/images/temp/Test Album Cover 2.jpg";
 // end temp imports
 
 import React, { useEffect, useState } from 'react'
 import "./styles.scss";
-import { api } from '../../services/api';
+import { api } from '../../../services/api';
 import { useLocation, useNavigate } from 'react-router-dom';
 import MatchInfo from "./MatchInfo";
 import MusicHistory from "../components/MusicHistory";
 import MusicPlayer from "../components/MusicPlayer";
 import TrackInput from "../components/TrackInput";
+import Cookies from 'js-cookie';
 
 function Practice() {
   // this is all test data
@@ -55,20 +56,14 @@ function Practice() {
   const [trackData, setTrackData] = useState('Loading...');
 
   useEffect(() => {
-    // if play page was visited improperly, go to home
-    if (!location.state?.active) return navigate('/');
-
-    const { mode, genre } = location.state;
-
     const fetchMatchData = async () => {
-      const res = await api.post('/play/start', {
-        settings: {
-          mode: mode,
-          genre: genre
-        }
-      });
+      try {
+        const res = await api.get(`/solo/${Cookies.get('matchId')}?option=newTrack`);
 
-      setTrackData(res.data.track)
+        setTrackData(res.data.optionData)
+      } catch (error) {
+        console.log(`${error}`)
+      }
     }
 
     fetchMatchData();
@@ -76,7 +71,7 @@ function Practice() {
   
 
   return (
-    <div className="play">
+    <div className="playPractice">
       <section className='leftPanel'>
         <MatchInfo p1Data={p1Data} p2Data={p2Data} matchData={matchData} />
       </section>

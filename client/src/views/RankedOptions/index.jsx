@@ -2,10 +2,10 @@ import React from 'react'
 import "./styles.scss";
 import GenreSelect from '../../components/GenreSelect';
 
-function Casual() {
+function RankedOptions() {
   return (
-    <GenreSelect title='Casual' />
+    <GenreSelect title='Ranked' />
   )
 }
 
-export default Casual
+export default RankedOptions
