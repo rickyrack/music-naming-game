@@ -2,7 +2,6 @@ const { getMatch, findUserInMatch } = require("../logic/matchStore");
 
 
 const checkMatchStatus = (req, res, next) => {
-    console.log(req)
     const match = getMatch(req?.params?.matchId);
     if (match) {
         // checking existing matches

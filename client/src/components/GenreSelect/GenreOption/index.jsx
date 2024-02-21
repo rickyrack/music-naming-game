@@ -12,7 +12,7 @@ function GenreOption({ img, title, handleGenre }) {
   return (
     <div className="genreOption">
         {genreImg}
-        <Button1 text={title} onMouseEnter={() => setGenreHover(true)} onMouseOut={() => setGenreHover(false)} onClick={() => handleGenre(title.replace(' ', '').toLowerCase())} />
+        <Button1 text={title} onMouseEnter={() => setGenreHover(true)} onMouseOut={() => setGenreHover(false)} onClick={() => handleGenre(title)} />
     </div>
   )
 }

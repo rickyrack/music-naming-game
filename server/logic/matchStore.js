@@ -27,6 +27,10 @@ class Match {
         this.mode = mode; // affects round timer and/or winScore
         this.genre = genre;
         this.winScore = 10000; // can be changed later or maybe a match setting
+        this.score = {
+            p1: 0,
+            p2: 0
+        }
     }
 
     async newTrack () {

@@ -15,12 +15,11 @@ function PracticeOptions() {
         const res = await api.post('/solo/start', {
           matchType: 'practice',
           settings: {
-            mode: mode.toLowerCase(),
+            mode: mode,
             genre: genre
           }
         });
 
-        console.log(res.data);
         Cookies.set('matchId', `${res.data.matchId}`);
 
         navigate('/play');

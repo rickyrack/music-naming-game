@@ -1,11 +1,11 @@
 import React from 'react'
 import "./styles.scss";
+import Avatar from '../../../../../components/Avatar';
 
-function PlayerCard({ username, profileImg, score }) {
-    // change to placeholders instead of figma copy
+function PlayerCard({ username, avatarId, score }) {
   return (
     <div className="playerCard">
-        <img src={profileImg} alt="profile image" />
+        <Avatar size='8rem' seed={`${avatarId}`} />
         <div className="playerInfo">
             <p>{username}</p>
             <p className="scoreText">Score: {score}</p>

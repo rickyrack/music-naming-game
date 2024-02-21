@@ -9,8 +9,8 @@ const { checkMatchStatus } = require('../middleware/checkMatchStatus');
 // POST start solo mode
 router.post('/start', checkMatchStatus, async (req, res) => {
     const { matchType, settings } = req.body;
-    const modes = ['normal', 'zen', 'rapid'];
-    const genres = ['rock', 'classical', 'hiphop', 'country', 'edm', 'all'];
+    const modes = ['Normal', 'Zen', 'Rapid'];
+    const genres = ['Rock', 'Classical', 'Hip Hop', 'Country', 'EDM', 'All'];
     if (!modes.includes(settings.mode) || !genres.includes(settings.genre)) {
         console.log(settings)
         return res.status(400).json('Mode or Genre Invalid');
@@ -23,21 +23,28 @@ router.post('/start', checkMatchStatus, async (req, res) => {
 
 // GET ...
 router.get('/:matchId', checkMatchStatus, async (req, res) => {
-    const match = getMatch(req.params.matchId);
-    let optionData;
-    switch (req?.query?.option) {
-        case 'matchType':
-            optionData = match.matchType;
-            break;
-        case 'newTrack':
-            optionData = match.newTrack();
-            break;
-        default:
-            return res.status(200).json({ match: match });
-            break;
+    try {
+        const match = getMatch(req.params.matchId);
+        let optionData;
+        switch (req?.query?.option) {
+            case 'matchType':
+                optionData = match.matchType;
+                break;
+            case 'newTrack':
+                optionData = await match.newTrack();
+                break;
+            default:
+                return res.status(200).json({ match: match });
+                break;
+        }
+
+        res.status(200).json({ matchData: match, optionData: optionData });
+    } catch (error) {
+        res.status(400).json('Match not found.');
     }
 
-    res.status(200).json({ optionData: optionData });
+
+    
 });
 
 module.exports = router;

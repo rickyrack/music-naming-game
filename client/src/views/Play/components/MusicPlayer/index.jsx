@@ -4,7 +4,7 @@ import "./styles.scss";
 function MusicPlayer({ trackData }) {
   return (
     <div className="player">
-      {trackData}
+      <p>{trackData}</p>
     </div>
   )
 }

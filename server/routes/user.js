@@ -75,6 +75,16 @@ router.put("/:uid/settings", auth, async (req, res) => {
   // updates one setting per request
   try {
     const settingName = Object.keys(req.body)[0];
+    switch (settingName) {
+      case 'avatarId':
+        if (!typeof req.body.avatarId === 'number') {
+          return res.status(400).json(`Error: Invalid avatarId`);
+        }
+        break;
+      default:
+        return res.status(400).json(`Error: Invalid Setting`);
+        break;
+    }
     const user = await User.findOneAndUpdate(
       { authUID: req.user.uid },
       { [`${settingName}`]: req.body[settingName] },
